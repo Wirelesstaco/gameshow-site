@@ -1,7 +1,8 @@
 :root {
     --bg: #2C394B;
+    
     --fg: #FF4C29;
-    --dargbg: #082032;
+    --darkbg: #082032;
     --accent: #334756;
 }
 
@@ -66,7 +67,7 @@ body {
 
 .section {
 
-    padding: 4rem 1.25rem;
+    padding: 4rem 4.25rem;
     opacity: 0;
     transform: translateY(40px);
 }
@@ -79,7 +80,7 @@ body {
 }
 
 .section:nth-of-type(odd) {
-    background: var(--dargbg);
+    background: var(--darkbg);
 }
 
 .about h2 {
@@ -88,11 +89,16 @@ body {
 
 h2 {
     margin: 0 0 1rem;
-    font-size: clamp(1.25rem, 4vw, 2rem);
+    font-size: clamp(1.25rem, 4vw, 2.5rem);
 }
 
 .list {
     padding-left: 1.2rem;
+}
+
+#schedule h2, #schedule li {
+  text-align: center;
+  list-style-type: none;
 }
 
 .gallery {
@@ -123,8 +129,10 @@ h2 {
 
 .footer {
     padding: 2rem 1.25rem;
-    background: #0a0a0b;
+    
     text-align: center;
+
+  
 }
 
 .footer-nav {
@@ -132,6 +140,23 @@ h2 {
     gap: 1rem;
     justify-content: center;
     margin-bottom: .5rem;
+    font-weight: 700;
+}
+/* Remove underline + color changes */
+.footer-nav a {
+  text-decoration: none;
+  color: inherit;          /* matches parent text color */
+  transition: opacity 0.2s ease;  /* optional subtle hover effect */
+}
+
+.footer-nav a:visited {
+  color: inherit;          /* prevents visited color change */
+}
+
+.footer-nav a:hover,
+.footer-nav a:focus {
+  opacity: 0.7;            /* optional fade hover; remove if unwanted */
+  text-decoration: none;   /* ensures no underline appears */
 }
 
 /* performance-friendly animation defaults */
@@ -235,28 +260,137 @@ h2 {
   margin-top: 0.5rem;
 }
 
+/* === Section Layout === */
+/* SECTION LAYOUT */
+#Events {
+  display: flex;
+  justify-content: center; /* centers the flex container itself if narrower than screen */
+  padding: 4rem 2rem;
+}
+
+.events-content {
+  display: flex;
+  align-items: center;     /* vertically centers text & gallery */
+  justify-content: center;
+  gap: 16rem;               /* space between text and gallery */
+  
+  max-width: 1400px;       /* optional max width */
+}
+
+/* TEXT COLUMN */
+.events-text {
+  flex: 1;
+  text-align: center;
+  font-weight: 600;
+  
+}
+
+.events-text h2 {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}
+
+.events-text ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1.8;
+  font-size: 1.5rem;
+}
+
 
 
 /*Gallery*/
 .gallery-slider {
   position: relative;
-  width: 100%;
+  width: 50vh;
   max-width: 900px;
   margin: 2rem auto;
-  height: 70vh;        /* pick a comfortable viewport height */
+  height: 80vh;        /* pick a comfortable viewport height */
   overflow: hidden;
   mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0.5%, rgba(0,0,0,1) 99.5%);
   -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0.5%, rgba(0,0,0,1) 99.5%);
 }
 
 .gallery-slider img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* fits entire image, may add empty space */
+  border-radius: 30px;
+  object-fit: cover; /* fits entire image, may add empty space */
+  object-position: center;
   opacity: 0;
   position: absolute;
   top: 0;
   left: 0;
+  max-height: 80vh;
+  width:50vh;
+  height:80vh;
 }
 
 
+#Reviews {
+  text-align: center;
+  padding: 1rem 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+#Reviews h2 {
+  font-size: 2rem;
+  margin-bottom: .5rem;
+}
+
+/* Slider container */
+.review-slider {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 100px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Individual reviews */
+.review {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  font-size: 2.8rem;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.4;
+  transition: opacity 0.5s ease;
+}
+
+
+
+/* Main Section */
+
+.wrapper {
+    display: flex;
+}
+
+.main {
+    flex: 3;
+}
+
+.main h2 {
+    font-size: 32px;
+    margin: 1rem 0;
+    color: #764ABC;
+}
+
+.main p {
+    font-size: .75rem;
+    margin-bottom: .75rem;
+}
+
+.main img {
+/*     width: 100%; */
+}
+
+.intro-img {
+  width: 250px;
+  height: 250px;
+  float: left;
+  shape-outside: circle() margin-box;
+  shape-margin: 10px;
+}  

@@ -83,11 +83,11 @@ const slides = document.querySelectorAll(".gallery-slider img");
 const gallery = document.querySelector(".gallery-slider");
 
 if (slides.length > 0) {
-  const fadeDuration = 3;
+  const fadeDuration = 2;
   const visibleTime = 5;
 
   // initialize: show first image & set container height
-  gsap.set(slides[0], { opacity: 1, position: "static" });
+ gsap.set(slides[0], { opacity: 1 });
   gallery.style.height = `${slides[0].offsetHeight}px`;
 
   const tl = gsap.timeline({ repeat: -1, defaults: { ease: "power1.inOut" } });
@@ -110,3 +110,42 @@ if (slides.length > 0) {
 
 
 /////////////
+///////// REVIEWS //////////
+
+  const reviews = document.querySelectorAll(".review");
+
+  const slideDuration = 1.2;  // time to slide in/out
+  const holdTime = 2.5;       // pause time at center
+  const overlap = 0.6;        // how early next starts (seconds)
+
+  gsap.set(reviews, { xPercent: 100, opacity: 0 });
+
+  const tl = gsap.timeline({ repeat: -1, defaults: { ease: "power2.inOut" } });
+
+  reviews.forEach((review, i) => {
+    const next = reviews[(i + 1) % reviews.length];
+
+    // slide this review in
+    tl.to(review, { xPercent: 0, opacity: 1, duration: slideDuration });
+
+    // hold centered
+    tl.to(review, { duration: holdTime });
+
+    // slide out left
+    tl.to(review, { xPercent: -100, opacity: 0, duration: slideDuration });
+
+  // immediately hide and reset offscreen (so no backward flash)
+    tl.set(review, { xPercent: 100, opacity: 0, visibility: "hidden" });
+
+
+    // overlap next one slightly *after* this one starts leaving
+    if (next) {
+      tl.to(next, { 
+        xPercent: 0, 
+        opacity: 1, 
+        duration: slideDuration 
+      }, `-=${overlap}`);
+    }
+  
+  });
+///////////////////
