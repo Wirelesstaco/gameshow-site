@@ -1,6 +1,8 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+
+let pageWidth = window.innerWidth;
 gsap.registerPlugin(ScrollTrigger);
 
 // add will-change hint
@@ -8,9 +10,31 @@ document.querySelectorAll(".title, .subtitle, .cta, .section").forEach(el => el.
 
 // Intro timeline for hero
 gsap.timeline()
-  .to(".title", { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" })
-  .to(".subtitle", { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, "-=0.4")
-  .to(".cta", { opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.6)" }, "-=0.2");
+  .from('.title1', {
+    xPercent: -120,
+    skewX: -8,
+    opacity: 0,
+     duration:.6
+
+  })
+  .from('.title2', {
+    xPercent: 120,
+    skewX: 8,
+    opacity: 0,
+    duration:.6
+
+  },"-=.01")
+  .from('.title3', {
+    xPercent: -120,
+    skewX: -8,
+    opacity: 0,
+     duration:.6
+   
+  },"-=.1")
+
+  
+
+  .to(".cta", { opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.6)" }, "+=3.2");
 
 // Scroll-triggered section reveals // THis is a fade in
 gsap.utils.toArray(".section").forEach((section) => {
@@ -40,6 +64,10 @@ gsap.to(".video-section", {
     toggleActions: "play none none reverse"
   }
 });
+
+//video section
+gsap.to(".ballon", { opacity: 1, y: -400, duration: 2, ease: "power2.out" })
+
 
 // small hover micro-interaction - button grows in size
 const buy = document.querySelector(".btn-primary");
@@ -87,7 +115,7 @@ if (slides.length > 0) {
   const visibleTime = 5;
 
   // initialize: show first image & set container height
- gsap.set(slides[0], { opacity: 1 });
+  gsap.set(slides[0], { opacity: 1 });
   gallery.style.height = `${slides[0].offsetHeight}px`;
 
   const tl = gsap.timeline({ repeat: -1, defaults: { ease: "power1.inOut" } });
@@ -112,40 +140,40 @@ if (slides.length > 0) {
 /////////////
 ///////// REVIEWS //////////
 
-  const reviews = document.querySelectorAll(".review");
+const reviews = document.querySelectorAll(".review");
 
-  const slideDuration = 1.2;  // time to slide in/out
-  const holdTime = 2.5;       // pause time at center
-  const overlap = 0.6;        // how early next starts (seconds)
+const slideDuration = 1.2;  // time to slide in/out
+const holdTime = 2.5;       // pause time at center
+const overlap = 0.6;        // how early next starts (seconds)
 
-  gsap.set(reviews, { xPercent: 100, opacity: 0 });
+gsap.set(reviews, { xPercent: 100, opacity: 0 });
 
-  const tl = gsap.timeline({ repeat: -1, defaults: { ease: "power2.inOut" } });
+const tl = gsap.timeline({ repeat: -1, defaults: { ease: "power2.inOut" } });
 
-  reviews.forEach((review, i) => {
-    const next = reviews[(i + 1) % reviews.length];
+reviews.forEach((review, i) => {
+  const next = reviews[(i + 1) % reviews.length];
 
-    // slide this review in
-    tl.to(review, { xPercent: 0, opacity: 1, duration: slideDuration });
+  // slide this review in
+  tl.to(review, { xPercent: 0, opacity: 1, duration: slideDuration });
 
-    // hold centered
-    tl.to(review, { duration: holdTime });
+  // hold centered
+  tl.to(review, { duration: holdTime });
 
-    // slide out left
-    tl.to(review, { xPercent: -100, opacity: 0, duration: slideDuration });
+  // slide out left
+  tl.to(review, { xPercent: -100, opacity: 0, duration: slideDuration });
 
   // immediately hide and reset offscreen (so no backward flash)
-    tl.set(review, { xPercent: 100, opacity: 0, visibility: "hidden" });
+  tl.set(review, { xPercent: 100, opacity: 0, visibility: "hidden" });
 
 
-    // overlap next one slightly *after* this one starts leaving
-    if (next) {
-      tl.to(next, { 
-        xPercent: 0, 
-        opacity: 1, 
-        duration: slideDuration 
-      }, `-=${overlap}`);
-    }
-  
-  });
+  // overlap next one slightly *after* this one starts leaving
+  if (next) {
+    tl.to(next, {
+      xPercent: 0,
+      opacity: 1,
+      duration: slideDuration
+    }, `-=${overlap}`);
+  }
+
+});
 ///////////////////

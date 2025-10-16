@@ -5,24 +5,39 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gameshow! Gameshow! Gameshow! </title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_drop_down_circle" />
   <link rel="stylesheet" href="/src/styles.css" />
+
 </head>
 
 <body>
   <header class="hero" id="home">
+    <video autoplay muted loop playsinline>
+      <source src="/img/ShowPromo.mp4" type="video/mp4">
+    </video>
+    <div class="title">
+      <h1 class="title1">Gameshow!</h1>
+      <h1 class="title2">Gameshow!</h1>
+      <h1 class="title3">Gameshow!</h1>
+   
 
-
-    <img class="title" src="/img/gameshow-logo.png" alt="Logo">
-
-
-    <a class="cta" href="#video">Down Arrow</a>
+    </div>
+   <a class="cta" href="#video"> <span class="material-symbols-outlined">
+        arrow_drop_down_circle
+      </span></a>
+    
   </header>
 
   <main>
     <section class="section video-section" id="video">
- 
+
       <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Event Trailer" frameborder="0"
+        <iframe src="https://www.youtube.com/embed/vmNxvml7EdU" title="Event Trailer" frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen>
         </iframe>
@@ -30,34 +45,16 @@
 
     </section>
     <section class="section" id="about">
-
+      <img class="float-image" src="/img/joe-sticker.png" alt="Joe">
       <h2>A Comedy Gameshow that quickly devovles into conducted Chaos!</h2>
       <h2>Play Over 40 games in an hour!</h2>
       <h2>From trivia and physical challenges to custom built video games made just for this show.</h3>
-        <h2>Come with a charged your cellphones for the full expereince!</h2>
-
-        <img class="" src="/img/joe-sticker.png" alt="Joe">
-
-
+        <h2>Come with a charged your cellphone for the full expereince!</h2>
     </section>
-        <div class="wrapper">
-        <section class="main">
-            <h2>Text wrap around the PNG image by using the shape-outside property</h2>
-          
-          <img class="intro-img" src="https://abbeyjfitzgerald.com/wp-content/uploads/2020/03/plant-clip.png">  
-
-<p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
-
-<p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.</p>
-
-<p>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.</p>
-        
-        </section>
-    </div>
 
     <section class="section" id="awards">
-    
-      <img class="award" src="/img/winner-ballon.jpg" alt="Ballow award">
+      <img class="awards ballon" src="/img/ballon.png" alt="Ballon">
+      <img class="awards joelook" src="/img/joe-look-sticker.png" alt="Joe Look Sticker">
     </section>
     <section id="Reviews">
       <h2>Audience Reviews</h2>
@@ -86,6 +83,7 @@
           <img src="/img/bombay.jpg" alt="">
           <img src="/img/activist-kitchen.jpg" alt="">
           <img src="/img/poems.jpg" alt="">
+          <img src="/img/joe-point.jpg" alt="Man pointing at audience">
 
         </div>
       </div>
@@ -114,7 +112,7 @@
         <p class="form-status" id="formStatus"></p>
       </form>
     </section>
-    
+
     <section class="section" id="schedule">
       <h2>Upcoming Events</h2>
       <ul class="list">
