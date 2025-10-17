@@ -41,7 +41,7 @@ gsap.utils.toArray(".section").forEach((section) => {
   gsap.to(section, {
     opacity: 1,
     y: 0,
-    duration: 0.9,
+    duration: 0.3,
     ease: "power2.out",
     scrollTrigger: {
       trigger: section,
@@ -66,7 +66,17 @@ gsap.to(".video-section", {
 });
 
 //video section
-gsap.to(".ballon", { opacity: 1, y: -400, duration: 2, ease: "power2.out" })
+gsap.to(".balloon", 
+  { scrollTrigger: {
+  trigger: ".balloon",
+  toggleActions:"restart pause resume pause"}, 
+  opacity: 1, yPercent: -50, duration:4 ,delay:0, ease: "back.inOut" })
+
+  gsap.to(".joelook", 
+  { scrollTrigger: {
+  trigger: ".joelook",
+  toggleActions:"restart pause resume pause"}, 
+  opacity: 1, scale: 1.1, duration:4 ,delay:4, ease: "back.inOut" })
 
 
 // small hover micro-interaction - button grows in size

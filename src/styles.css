@@ -8,7 +8,7 @@
 
   --bubble1: #130740; 
   --bubble2: #010326; 
-  --bubble2: #1D4859; 
+  --bubble3: #1D4859; 
 
   --bubble4:#A67165;
   --bubble5: #592828;
@@ -77,14 +77,29 @@ img {
     line-height: 130%;
 }
 
-
-.award {
+#awards{
+ 
+}
+.balloon {
+  height:100%;
+}
+.award-img {
+ 
+  
+   display: flex;
+     justify-content: center;
+  max-width: 100%;
+}
+.hollywood {
+ 
+  padding-bottom:200px;
   display: block;
-  margin: 0 auto;
-  /* centers horizontally */
-  max-width: 70%;
-  /* keeps it responsive */
-  height: auto;
+  margin:0 auto;
+  clear: both;
+
+}
+.joelook{
+  float:right;
 }
 
 .center {
@@ -243,6 +258,7 @@ h2 {
 
 
 .contact-section {
+  font-family: "anton";
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -380,17 +396,19 @@ h2 {
 
 
 #Reviews {
-  background:var(--darkbg);
+  background:var(--bg);
   text-align: center;
   padding: 1rem 1rem;
   position: relative;
   overflow: hidden;
    font-family:"Anton",system-ui, sans-serif;
+   color:var(--bubble4);
 }
 
 #Reviews h2 {
   font-size: 2rem;
   margin-bottom: .5rem;
+
 }
 
 /* Slider container */
@@ -540,6 +558,34 @@ h2 {
   text-align: center;
   padding-top: 20vh;
   font-family: 'Poppins', sans-serif;
+}
+
+/* responsive tweak */
+@media (max-width: 1225px) {
+  .events-content {
+
+    gap: 6rem;
+}}
+/* responsive tweak */
+@media (max-width: 925px) {
+  .events-content {
+
+    gap: 1rem;
+}
+.balloon {
+max-width: 30%;
+height:10%;
+}
+.award-img {
+ 
+}
+.hollywood {
+ 
+}
+.joelook{
+  max-width: 50%;
+
+}
 }
 
 
