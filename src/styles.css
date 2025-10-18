@@ -61,6 +61,7 @@ img {
   text-align: center;
   padding: 4rem 1.25rem;
    font-family: "Anton",system-ui, sans-serif;
+   position: relative;
 }
 
 .hero img {
@@ -78,6 +79,9 @@ img {
     text-transform: uppercase;
     line-height: 130%;
 }
+
+
+
 
 #awards{
  

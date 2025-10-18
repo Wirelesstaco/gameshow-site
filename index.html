@@ -17,7 +17,8 @@
 
 <body>
   <header class="hero" id="home">
-    <video class="hero__video" autoplay muted loop playsinline preload="none" poster="/videos/hero-poster.jpg" aria-hidden="true">
+    <video class="hero__video" autoplay muted loop playsinline preload="none" poster="/videos/hero-poster.jpg"
+      aria-hidden="true">
       <source data-src="/videos/show-promo_720.mp4" type="video/mp4" media="(min-width: 700px)">
       <source data-src="/videos/show-promo_480.mp4" type="video/mp4">
     </video>
@@ -98,7 +99,8 @@
     <section class="section contact-section" id="contact">
       <h2>Lets Chat!</h2>
 
-      <form class="contact-form" id="contactForm">
+      <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="87bd8f90-15fd-4713-a291-a354d53e1172">
         <label>
           Name
           <input type="text" name="name" required placeholder="Your name">

@@ -123,7 +123,7 @@ if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   gsap.globalTimeline.timeScale(0.001); // effectively pause animations
 }
 
-//Contact Form Front end
+////////Contact Form Front end////////////
 
 const contactForm = document.getElementById("contactForm");
 const formStatus = document.getElementById("formStatus");
@@ -133,14 +133,26 @@ if (contactForm) {
     e.preventDefault();
     formStatus.textContent = "Sending...";
 
-    // Collect data
-    const data = Object.fromEntries(new FormData(contactForm));
+    const formData = new FormData(contactForm);
 
-    // Example: fake success (no backend yet)
-    setTimeout(() => {
-      formStatus.textContent = "Message sent! Thank you 😊";
-      contactForm.reset();
-    }, 800);
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        formStatus.textContent = "Message sent! Thank you 😊";
+        contactForm.reset();
+      } else {
+        formStatus.textContent = `Error: ${result.message || "Something went wrong"}`;
+      }
+    } catch (error) {
+      formStatus.textContent = "Network error — please try again later.";
+      console.error("Web3Forms error:", error);
+    }
   });
 }
 

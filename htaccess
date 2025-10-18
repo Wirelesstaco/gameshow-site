@@ -1,0 +1,7 @@
+RewriteEngine On
+
+# Capture the subdomain name (team1, team2, etc.)
+RewriteCond %{HTTP_HOST} ^([^.]+)\.gameshowgameshow\.com$ [NC]
+
+# Redirect dynamically to the Heroku app with the subdomain as the room name
+RewriteRule ^(.*)$ https://gameshow-server-86ab7faa2bf3.herokuapp.com/?room=%1 [L,R=301]
