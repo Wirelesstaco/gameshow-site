@@ -5,6 +5,38 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 let pageWidth = window.innerWidth;
 gsap.registerPlugin(ScrollTrigger);
 
+///Hero
+window.addEventListener('load', () => {
+  // Once everything else has finished loading:
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadBackgroundVideo, { timeout: 2000 });
+  } else {
+    setTimeout(loadBackgroundVideo, 1500);
+  }
+});
+
+function loadBackgroundVideo() {
+  const video = document.querySelector('.hero__video');
+  const sources = video.querySelectorAll('source[data-src]');
+  
+  sources.forEach(source => {
+    source.src = source.dataset.src; // Activate actual URL
+    source.removeAttribute('data-src');
+  });
+  
+  video.load();
+  
+  // Autoplay after a tiny buffer
+  video.addEventListener('loadeddata', () => {
+    video.play().catch(() => {});
+  });
+}
+
+
+
+
+
+
 // add will-change hint
 document.querySelectorAll(".title, .subtitle, .cta, .section").forEach(el => el.classList.add("will-animate"));
 

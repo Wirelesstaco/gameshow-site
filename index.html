@@ -17,8 +17,9 @@
 
 <body>
   <header class="hero" id="home">
-    <video autoplay muted loop playsinline>
-      <source src="/img/ShowPromo.mp4" type="video/mp4">
+    <video class="hero__video" autoplay muted loop playsinline preload="none" poster="/videos/hero-poster.jpg" aria-hidden="true">
+      <source data-src="/videos/show-promo_720.mp4" type="video/mp4" media="(min-width: 700px)">
+      <source data-src="/videos/show-promo_480.mp4" type="video/mp4">
     </video>
     <div class="title">
       <h1 class="title1">Gameshow!</h1>
@@ -53,12 +54,12 @@
     </section>
 
     <section class="section" id="awards">
-          <img class="awards hollywood" src="/img/hollywood.png" alt="award laural">
+      <img class="awards hollywood" src="/img/hollywood.png" alt="award laural">
       <div class="award-img">
-     
+
         <img class="awards balloon" src="/img/ballon.png" alt="Ballon">
         <img class="awards joelook" src="/img/joe-look-sticker.png" alt="Joe Look Sticker">
-        
+
       </div>
     </section>
     <section id="Reviews">
